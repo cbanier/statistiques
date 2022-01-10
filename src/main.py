@@ -10,7 +10,7 @@ def reverse(L):
 
 
 if __name__ == "__main__":
-    data = convert_all_data_to_list('moyenne10km.csv')
+    data = convert_all_data_to_list(path + '/data/moyenne10km.csv')
     numbers = get_data(data)
     # affiche la moyenne arithmétique
     print('Moyenne arithmétique : ', round(mean_arith(numbers), 4))

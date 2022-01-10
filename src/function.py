@@ -8,6 +8,9 @@ from math import sqrt
 from typing import List, Tuple
 
 
+path = os.getcwd()
+
+
 # parse les valeurs dans une liste de tuple(classement, moyenne_10_km)
 def convert_all_data_to_list(file: str):
     data: List[tuple] = []
@@ -63,8 +66,8 @@ def ecart_type(var):
 
 # Vérifie si le dossier output/ existe, le créer sinon
 def check_output_dir():
-    if not os.path.exists('output/'):
-        os.makedirs('output/')
+    if not os.path.exists(path + '/output'):
+        os.makedirs(path + '/output')
 
 
 # Dessine l'histogramme correspond aux valeurs de data
@@ -76,7 +79,7 @@ def normal_approximation(data):
     bins: List[float] = [i for i in range(int(data[-1]), int(data[0]) + 1)]
     ax.hist(data, bins=bins, density=True, alpha=0.6, color='green', edgecolor='k', label='histogramme')
     check_output_dir()
-    fig.savefig('output/histogramme.png')
+    fig.savefig(path + '/output/histogramme.png')
 
     # tracé de la densité
     xmin, xmax = plt.xlim()
@@ -91,7 +94,7 @@ def normal_approximation(data):
     #plt.show()
 
     check_output_dir()
-    fig.savefig('output/approximation.png')
+    fig.savefig(path + '/output/approximation.png')
     return x, p
 
 
