@@ -1,0 +1,5 @@
+stat_env/
+.idea
+.vscode
+__pycache__/
+output/
